@@ -29,3 +29,33 @@ export const searchPokemon = async (name) => {
   const data = await response.json();
   return data;
 };
+
+export const getTypesPokemon = async () => {
+  const url = `${baseUrl}/type`;
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await fetch(url, options);
+
+  const data = await response.json();
+  return data;
+};
+
+export const getFilterPokemon = async (type) => {
+  const url = `${baseUrl}/type/${type}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await fetch(url, options);
+
+  const data = await response.json();
+  return data;
+};

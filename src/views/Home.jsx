@@ -1,21 +1,26 @@
+import { useEffect, useRef, useState } from "react";
+import { useGetPokemonList } from "../hooks/usePokemonList";
+import { useSearchPokemon } from "../hooks/useSearchPokemon";
+import { useFilterTypePokemon } from "../hooks/useTypePokemon";
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import Spinner from "../components/Spinner/Spinner";
-import { useGetPokemonList } from "../hooks/usePokemonList";
-import { useSearchPokemon } from "../hooks/useSearchPokemon";
-import { useEffect, useRef, useState } from "react";
+import Filters from "../components/Filters";
 
 export default function Home() {
   const [namePokemon, setNamePokemon] = useState("");
+  const [filterPokemon, setFilterPokemon] = useState("");
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
   const { pokemonSearch, isSearchLoading } = useSearchPokemon(namePokemon);
+  const { pokemonFilter, isFilterLoading } =
+    useFilterTypePokemon(filterPokemon);
 
   const loadMoreRef = useRef();
 
   useEffect(() => {
     if (!loadMoreRef.current) return;
-
+    if (namePokemon || filterPokemon) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && hasNextPage) {
         fetchNextPage();
@@ -25,20 +30,34 @@ export default function Home() {
     observer.observe(loadMoreRef.current);
 
     return () => observer.disconnect();
-  }, [fetchNextPage, hasNextPage]);
+  }, [fetchNextPage, filterPokemon, hasNextPage, namePokemon]);
 
   return (
     <div className="flex flex-col items-center w-full">
-      <SearchBar namePokemon={namePokemon} setNamePokemon={setNamePokemon} />
+      <SearchBar
+        namePokemon={namePokemon}
+        setNamePokemon={setNamePokemon}
+        setFilterPokemon={setFilterPokemon}
+      />
 
-      {isLoading || isSearchLoading ? (
+      <Filters
+        filterPokemon={filterPokemon}
+        setFilterPokemon={setFilterPokemon}
+        setNamePokemon={setNamePokemon}
+      />
+
+      {isLoading || isSearchLoading || isFilterLoading ? (
         <div className="flex items-center justify-center w-full mt-5">
           <Spinner />
         </div>
       ) : (
         <div className="grid grid-cols-5 gap-5 h-full w-full">
-          {pokemonSearch ? (
+          {namePokemon ? (
             <Card pokemon={pokemonSearch} />
+          ) : filterPokemon ? (
+            pokemonFilter.map((pokemon) => (
+              <Card key={pokemon.id} pokemon={pokemon} />
+            ))
           ) : (
             data.pages.map((page) =>
               page.results.map((pokemon) => (

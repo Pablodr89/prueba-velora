@@ -19,7 +19,7 @@ export function getBackgroundColorByType(type) {
     case "ghost":
       return "bg-purple-600";
     case "rock":
-      return "bg-amber-900";
+      return "bg-stone-500";
     case "fighting":
       return "bg-gray-600";
     case "psychic":
@@ -34,6 +34,8 @@ export function getBackgroundColorByType(type) {
       return "bg-blue-500";
     case "dragon":
       return "bg-red-500";
+    case "stellar":
+      return "bg-teal-700";
     default:
       return "bg-orange-400";
   }
