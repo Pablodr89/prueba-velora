@@ -8,7 +8,7 @@ export default function Filters({
   const types = useGetTypesPokemon();
 
   return (
-    <div className="flex items-center gap-4 w-full px-2.5 mb-5">
+    <div className="flex flex-wrap items-center gap-4 w-full px-2.5 mb-5">
       <button
         onClick={() => {
           setFilterPokemon("");

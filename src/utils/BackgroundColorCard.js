@@ -34,8 +34,6 @@ export function getBackgroundColorByType(type) {
       return "bg-blue-500";
     case "dragon":
       return "bg-red-500";
-    case "stellar":
-      return "bg-teal-700";
     default:
       return "bg-orange-400";
   }

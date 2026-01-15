@@ -16,7 +16,11 @@ export const useGetTypesPokemon = () => {
   const types = useMemo(() => {
     if (!Array.isArray(data)) return [];
     return [
-      ...new Set(data.filter((t) => t.name !== "unknown").map((t) => t.name)),
+      ...new Set(
+        data
+          .filter((t) => t.name !== "unknown" && t.name !== "stellar")
+          .map((t) => t.name)
+      ),
     ];
   }, [data]);
 
