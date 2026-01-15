@@ -16,7 +16,7 @@ export const getPokemonList = async (limit, offset) => {
 };
 
 export const searchPokemon = async (name) => {
-  const url = `${baseUrl}/pokemon/${name}`;
+  const url = `${baseUrl}/pokemon/${name.toLowerCase()}`;
   const options = {
     method: "GET",
     headers: {
