@@ -1,10 +1,10 @@
-import { getBackgroundColorByType } from "../utils/BackgroundColorCard";
 import { usePokemonStore } from "../stores/usePokemonStore";
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
+import Button from "./Button";
+import CardPokemonTeamCard from "./CardPokemonTeamCard";
 
 export default function TeamCard({ team, isDraft = false }) {
   const {
-    discardDraft,
     removeTeam,
     sortTeamByAttack,
     shuffleTeam,
@@ -44,79 +44,44 @@ export default function TeamCard({ team, isDraft = false }) {
       <div className="flex justify-between items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
 
-        {!isDraft && (
-          <div className="flex items-center gap-5">
-            <button
-              onClick={() => handleShuffle()}
-              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Orden aleatorio 🔀
-            </button>
+        <div className="flex items-center gap-5">
+          <Button
+            text="Orden aleatorio 🔀"
+            handledClick={() => handleShuffle()}
+          />
 
-            <button
-              onClick={() => handleSortAttack()}
-              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Ordenar por ataque ⚔️
-            </button>
-          </div>
-        )}
+          <Button
+            text="Ordenar por ataque ⚔️"
+            handledClick={() => handleSortAttack()}
+          />
+        </div>
       </div>
 
       <div ref={parent} className="flex items-center gap-3 mt-3 cursor-pointer">
-        {displayPokemons.map((pokemon, index) => {
-          const bgColor = getBackgroundColorByType(pokemon.type[0]);
-
-          return (
-            <div
-              data-label={pokemon.id}
-              className={`flex flex-col border p-2 rounded-lg shadow-md ${bgColor}`}
-              key={`${team.id}-${pokemon.id}-${index}`}
-            >
-              <div className="flex flex-col justify-between">
-                <h2 className="text-start text-white text-xl capitalize font-semibold">
-                  {pokemon.name}
-                </h2>
-              </div>
-
-              <div className="flex w-40 h-40">
-                <img
-                  src={pokemon.image}
-                  alt={pokemon.name}
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          );
-        })}
+        {displayPokemons.map((pokemon, index) => (
+          <CardPokemonTeamCard
+            isDraft={isDraft}
+            team={team}
+            pokemon={pokemon}
+            index={index}
+          />
+        ))}
       </div>
 
-      {isDraft ? (
-        <button
-          onClick={() => discardDraft(team.id)}
-          className="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
-        >
-          Descartar borrador
-        </button>
-      ) : (
-        <div className="flex items-center justify-end gap-3">
-          {hasChanges && (
-            <button
-              onClick={() => saveTeamOrder(team.id)}
-              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Guardar equipo 💾
-            </button>
-          )}
+      <div className="flex items-center justify-end gap-3">
+        {hasChanges && (
+          <Button
+            text="Guardar equipo 💾"
+            handledClick={() => saveTeamOrder(team.id)}
+          />
+        )}
 
-          <button
-            onClick={() => removeTeam(team.id)}
-            className="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
-          >
-            Eliminar equipo
-          </button>
-        </div>
-      )}
+        <Button
+          text="Eliminar equipo 🗑"
+          handledClick={() => removeTeam(team.id)}
+          deleted
+        />
+      </div>
     </div>
   );
 }

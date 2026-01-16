@@ -118,6 +118,30 @@ export const usePokemonStore = create(
             tempOrders: nextTempOrders,
           };
         }),
+
+      removePokemonFromDraft: (pokemonId) =>
+        set((state) => {
+          if (!state.draft) return state;
+
+          // Creamos un nuevo array filtrado
+          const updatedPokemons = state.draft.pokemons.filter(
+            (p) => p.id !== pokemonId
+          );
+
+          // Si ya no quedan pokemons, eliminamos el borrador por completo
+          if (updatedPokemons.length === 0) {
+            return { draft: null };
+          }
+
+          // RETORNAMOS UN NUEVO OBJETO DRAFT
+          // Esto fuerza a React a re-renderizar la UI
+          return {
+            draft: {
+              ...state.draft,
+              pokemons: updatedPokemons,
+            },
+          };
+        }),
     }),
     {
       name: "pokemon-storage",

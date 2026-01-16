@@ -3,6 +3,7 @@ import Plus from "../images/plus.svg";
 import { usePokemonStore } from "../stores/usePokemonStore";
 import { useContext } from "react";
 import { ModalsContext } from "../context/ContextModals";
+import Button from "./Button";
 
 export default function Card({ pokemon }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
@@ -27,12 +28,11 @@ export default function Card({ pokemon }) {
           {pokemon.name}
         </h2>
 
-        <button
-          onClick={() => addPokemon(pokemon)}
-          className="text-white absolute top-2 right-2"
-        >
-          <img src={Plus} alt="icon plus" className="object-cover" />
-        </button>
+        <Button
+          customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent px-0 py-0"
+          icon={Plus}
+          handledClick={() => addPokemon(pokemon)}
+        />
 
         <div className="flex justify-start items-end gap-5">
           {pokemon.type.map((type) => (
