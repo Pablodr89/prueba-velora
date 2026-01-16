@@ -12,7 +12,8 @@ export default function Home() {
   const [filterPokemon, setFilterPokemon] = useState("");
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
-  const { pokemonSearch, isSearchLoading } = useSearchPokemon(namePokemon);
+  const { pokemonSearch, isSearchLoading, searchError } =
+    useSearchPokemon(namePokemon);
   const { pokemonFilter, isFilterLoading } =
     useFilterTypePokemon(filterPokemon);
 
@@ -53,7 +54,19 @@ export default function Home() {
       ) : (
         <div className="grid grid-cols-5 gap-5 h-full w-full">
           {namePokemon ? (
-            <Card pokemon={pokemonSearch} />
+            // Si hay búsqueda activa
+            searchError ? (
+              <div className="col-span-5 flex flex-col items-center justify-center p-10 bg-red-50 rounded-lg border border-red-200">
+                <p className="text-red-600 font-bold text-lg">
+                  ⚠️ Pokémon "{namePokemon}" no encontrado
+                </p>
+                <p className="text-red-400 text-sm">
+                  Verifica que el nombre esté bien escrito
+                </p>
+              </div>
+            ) : (
+              pokemonSearch && <Card pokemon={pokemonSearch} />
+            )
           ) : filterPokemon ? (
             pokemonFilter.map((pokemon) => (
               <Card key={pokemon.id} pokemon={pokemon} />

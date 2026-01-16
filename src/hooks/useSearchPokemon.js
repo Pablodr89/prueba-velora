@@ -3,7 +3,7 @@ import { searchPokemon } from "../api/pokeApi";
 import { mapApiPokemon } from "../mappers/mapApiPokemon";
 
 export const useSearchPokemon = (name = "") => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["pokemon", name],
     queryFn: async () => {
       const apiData = await searchPokemon(name);
@@ -12,5 +12,9 @@ export const useSearchPokemon = (name = "") => {
     enabled: !!name && name.trim().length > 0,
   });
 
-  return { pokemonSearch: data, isSearchLoading: isLoading };
+  return {
+    pokemonSearch: data,
+    isSearchLoading: isLoading,
+    searchError: isError,
+  };
 };
