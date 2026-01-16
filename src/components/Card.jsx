@@ -15,7 +15,7 @@ export default function Card({ pokemon }) {
 
     setTimeout(() => {
       setShowModalPokemonAdded(false);
-    }, 3000);
+    }, 1500);
   };
 
   return (

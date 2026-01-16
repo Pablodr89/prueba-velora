@@ -1,8 +1,43 @@
 import { getBackgroundColorByType } from "../utils/BackgroundColorCard";
 import { usePokemonStore } from "../stores/usePokemonStore";
+import { useDragAndDrop } from "@formkit/drag-and-drop/react";
 
 export default function TeamCard({ team, isDraft = false }) {
-  const { discardDraft, removeTeam } = usePokemonStore();
+  const {
+    discardDraft,
+    removeTeam,
+    sortTeamByAttack,
+    shuffleTeam,
+    saveTeamOrder,
+    tempOrders,
+    setManualOrder,
+  } = usePokemonStore();
+  const initialPokemons = tempOrders[team.id] || team.pokemons;
+  const hasChanges = !!tempOrders[team.id];
+  const [parent, displayPokemons, setValues] = useDragAndDrop(initialPokemons, {
+    // Esta función se dispara cada vez que terminas de arrastrar
+    onDragend: (data) => {
+      // 1. 'data.values' contiene el nuevo orden del array
+      const newOrder = data.values;
+
+      // 2. Actualizamos el store para que aparezca el botón de "Guardar"
+      setManualOrder(team.id, newOrder);
+    },
+  });
+
+  const handleShuffle = () => {
+    // 1. Ejecutamos la lógica del store y obtenemos el nuevo orden
+    const newOrder = shuffleTeam(team.id);
+    // 2. Le decimos al Drag and Drop que actualice la vista
+    setValues(newOrder);
+  };
+
+  const handleSortAttack = () => {
+    // 1. Ejecutamos la lógica del store y obtenemos el nuevo orden
+    const newOrder = sortTeamByAttack(team.id);
+    // 2. Le decimos al Drag and Drop que actualice la vista
+    setValues(newOrder);
+  };
 
   return (
     <div className={`flex flex-col gap-3 border p-4 m-2 rounded-lg shadow-lg `}>
@@ -11,25 +46,32 @@ export default function TeamCard({ team, isDraft = false }) {
 
         {!isDraft && (
           <div className="flex items-center gap-5">
-            <button className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Orden aleatorio
+            <button
+              onClick={() => handleShuffle()}
+              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Orden aleatorio 🔀
             </button>
 
-            <button className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Ordenar por ataque
+            <button
+              onClick={() => handleSortAttack()}
+              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Ordenar por ataque ⚔️
             </button>
           </div>
         )}
       </div>
-      <div className="flex items-center gap-3 mt-3">
-        {team.pokemons.map((pokemon) => {
-          console.log("type", pokemon.type[0]);
+
+      <div ref={parent} className="flex items-center gap-3 mt-3 cursor-pointer">
+        {displayPokemons.map((pokemon, index) => {
           const bgColor = getBackgroundColorByType(pokemon.type[0]);
 
           return (
             <div
+              data-label={pokemon.id}
               className={`flex flex-col border p-2 rounded-lg shadow-md ${bgColor}`}
-              key={pokemon.name}
+              key={`${team.id}-${pokemon.id}-${index}`}
             >
               <div className="flex flex-col justify-between">
                 <h2 className="text-start text-white text-xl capitalize font-semibold">
@@ -58,9 +100,14 @@ export default function TeamCard({ team, isDraft = false }) {
         </button>
       ) : (
         <div className="flex items-center justify-end gap-3">
-          <button className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Guardar equipo
-          </button>
+          {hasChanges && (
+            <button
+              onClick={() => saveTeamOrder(team.id)}
+              className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Guardar equipo 💾
+            </button>
+          )}
 
           <button
             onClick={() => removeTeam(team.id)}
