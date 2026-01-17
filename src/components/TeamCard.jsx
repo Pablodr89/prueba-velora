@@ -15,7 +15,7 @@ export default function TeamCard({ team, isDraft = false }) {
     tempOrders,
     setManualOrder,
   } = usePokemonStore();
-  const { selectTeam } = useCombatStore();
+  const { selectTeam, teamA, teamB } = useCombatStore();
   const { setShowModalSaveTeam, setShowModalSelectedTeam } =
     useContext(ModalsContext);
   const initialPokemons = tempOrders[team.id] || team.pokemons;
@@ -62,7 +62,9 @@ export default function TeamCard({ team, isDraft = false }) {
   };
 
   return (
-    <div className={`flex flex-col gap-3 border p-4 m-2 rounded-lg shadow-lg `}>
+    <div
+      className={`flex flex-col gap-3  p-4 m-2 rounded-lg shadow-lg ${team.id === teamA?.id || team.id === teamB?.id ? "border-4 border-blue-900" : "border border-gray-300"}`}
+    >
       <div className="flex justify-between items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
 

@@ -15,12 +15,17 @@ export const useCombatStore = create((set, get) => ({
       // Si no hay ninguno, este es el A
       set({ teamA: team });
     } else if (!teamB) {
+      //Si el id del B es igual al A, no dejar seleccionarlo
+      if (team.id === teamA.id) {
+        alert("Ya has elegido este equipo como Equipo A. Elige otro.");
+        return;
+      }
       // Si ya hay A pero no B, este es el B
       set({ teamB: team });
     } else {
       // 3. Si ambos ya están elegidos, lanzamos el alert
       alert(
-        "Ya has elegido los dos equipos. ¡Haz clic en Combatir o reinicia la selección!"
+        "Ya has elegido los dos equipos. ¡Haz clic en Combatir o reinicia la selección!",
       );
     }
   },
