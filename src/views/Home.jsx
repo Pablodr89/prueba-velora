@@ -6,6 +6,7 @@ import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import Spinner from "../components/Spinner/Spinner";
 import Filters from "../components/Filters";
+import ErrorSearchPokemon from "../components/ErrorSearchPokemon";
 
 export default function Home() {
   const [namePokemon, setNamePokemon] = useState("");
@@ -56,14 +57,7 @@ export default function Home() {
           {namePokemon ? (
             // Si hay búsqueda activa
             searchError ? (
-              <div className="col-span-5 flex flex-col items-center justify-center p-10 bg-red-50 rounded-lg border border-red-200">
-                <p className="text-red-600 font-bold text-lg">
-                  ⚠️ Pokémon "{namePokemon}" no encontrado
-                </p>
-                <p className="text-red-400 text-sm">
-                  Verifica que el nombre esté bien escrito
-                </p>
-              </div>
+              <ErrorSearchPokemon namePokemon={namePokemon} />
             ) : (
               pokemonSearch && <Card pokemon={pokemonSearch} />
             )
