@@ -2,6 +2,9 @@ import { usePokemonStore } from "../stores/usePokemonStore";
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
 import Button from "./Button";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
+import { useCombatStore } from "../stores/useCombatStore";
+import { useContext } from "react";
+import { ModalsContext } from "../context/ContextModals";
 
 export default function TeamCard({ team, isDraft = false }) {
   const {
@@ -12,6 +15,9 @@ export default function TeamCard({ team, isDraft = false }) {
     tempOrders,
     setManualOrder,
   } = usePokemonStore();
+  const { selectTeam } = useCombatStore();
+  const { setShowModalSaveTeam, setShowModalSelectedTeam } =
+    useContext(ModalsContext);
   const initialPokemons = tempOrders[team.id] || team.pokemons;
   const hasChanges = !!tempOrders[team.id];
   const [parent, displayPokemons, setValues] = useDragAndDrop(initialPokemons, {
@@ -39,6 +45,22 @@ export default function TeamCard({ team, isDraft = false }) {
     setValues(newOrder);
   };
 
+  const saveTeam = () => {
+    saveTeamOrder(team.id);
+    setShowModalSaveTeam(true);
+    setTimeout(() => {
+      setShowModalSaveTeam(false);
+    }, 1500);
+  };
+
+  const chooseTeamForCombat = () => {
+    selectTeam(team);
+    setShowModalSelectedTeam(true);
+    setTimeout(() => {
+      setShowModalSelectedTeam(false);
+    }, 1500);
+  };
+
   return (
     <div className={`flex flex-col gap-3 border p-4 m-2 rounded-lg shadow-lg `}>
       <div className="flex justify-between items-center">
@@ -60,6 +82,7 @@ export default function TeamCard({ team, isDraft = false }) {
       <div ref={parent} className="flex items-center gap-3 mt-3 cursor-pointer">
         {displayPokemons.map((pokemon, index) => (
           <CardPokemonTeamCard
+            key={pokemon.id}
             isDraft={isDraft}
             team={team}
             pokemon={pokemon}
@@ -68,19 +91,23 @@ export default function TeamCard({ team, isDraft = false }) {
         ))}
       </div>
 
-      <div className="flex items-center justify-end gap-3">
-        {hasChanges && (
-          <Button
-            text="Guardar equipo 💾"
-            handledClick={() => saveTeamOrder(team.id)}
-          />
-        )}
-
+      <div className="flex justify-between">
         <Button
-          text="Eliminar equipo 🗑"
-          handledClick={() => removeTeam(team.id)}
-          deleted
+          text="Elegir para combate 🤼"
+          handledClick={() => chooseTeamForCombat()}
         />
+
+        <div className="flex items-center justify-end gap-3">
+          {hasChanges && (
+            <Button text="Guardar equipo 💾" handledClick={() => saveTeam()} />
+          )}
+
+          <Button
+            text="Eliminar equipo 🗑"
+            handledClick={() => removeTeam(team.id)}
+            deleted
+          />
+        </div>
       </div>
     </div>
   );
