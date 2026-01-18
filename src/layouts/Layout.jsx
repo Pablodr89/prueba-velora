@@ -20,7 +20,7 @@ export default function Layout() {
 
         {showModalPokemonAdded && (
           <div className="w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
-            <p className="text-white p-5">¡Pokémon añadido al equipo!</p>
+            <p className="text-white p-5">¡Pokémon añadido al borrador!</p>
           </div>
         )}
         {showModalSaveTeam && (
