@@ -24,17 +24,17 @@ export default function Card({ pokemon }) {
       className={`flex border p-4 m-2 rounded-lg shadow-lg relative h-40 group ${bgColor}`}
     >
       <div className="flex flex-col justify-between w-full">
-        <h2 className="text-start text-white text-xl capitalize font-semibold">
+        <h2 className="text-start text-white md:text-xl capitalize font-semibold">
           {pokemon.name}
         </h2>
 
         <Button
-          customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent px-0 py-0"
+          customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
           icon={Plus}
           handledClick={() => addPokemon(pokemon)}
         />
 
-        <div className="flex justify-start items-end gap-5">
+        <div className="flex flex-col md:flex-row justify-start md:items-end md:gap-5">
           {pokemon.type.map((type) => (
             <span
               key={type}
@@ -46,7 +46,7 @@ export default function Card({ pokemon }) {
         </div>
       </div>
 
-      <div className="flex w-40 h-40 self-end absolute top-8 -right-8">
+      <div className="flex w-20 h-20 md:w-40 md:h-40 self-end absolute top-24 md:top-8 -right-5 md:-right-8">
         <img
           src={pokemon.image}
           alt={pokemon.name}

@@ -21,13 +21,13 @@ export default function ModalCombatResult() {
   return (
     <BaseModal>
       <div className="flex h-full w-full flex-col items-center gap-6">
-        <h3 className="text-2xl text-center font-semibold mb-2">
+        <h3 className="md:text-2xl text-center font-semibold mb-2">
           Historial de Combates
         </h3>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 max-h-64 overflow-y-auto w-full">
           {history.map((combat, index) => (
-            <p className="text-xl font-medium" key={index}>
+            <p className="md:text-xl font-medium" key={index}>
               Combate {index + 1}:{" "}
               <span className="capitalize">{combat.match[0]}</span> vs{" "}
               <span className="capitalize">{combat.match[1]}</span> - Ganador:{" "}
@@ -48,7 +48,7 @@ export default function ModalCombatResult() {
         </div>
 
         <h3 className="text-4xl font-semibold mb-2">
-          Ganador: {gameResult.winner}
+          Ganador: Equipo {gameResult.winner}
         </h3>
 
         <div className="flex justify-center mt-5">

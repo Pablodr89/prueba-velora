@@ -53,7 +53,7 @@ export default function Home() {
           <Spinner />
         </div>
       ) : (
-        <div className="grid grid-cols-5 gap-5 h-full w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 h-full w-full">
           {namePokemon ? (
             // Si hay búsqueda activa
             searchError ? (
@@ -69,7 +69,7 @@ export default function Home() {
             data.pages.map((page) =>
               page.results.map((pokemon) => (
                 <Card key={pokemon.id} pokemon={pokemon} />
-              ))
+              )),
             )
           )}
 

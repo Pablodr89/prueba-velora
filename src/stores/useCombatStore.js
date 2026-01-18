@@ -83,7 +83,7 @@ export const useCombatStore = create((set, get) => ({
     // Resultado final al terminar el bucle
     set({
       gameResult: {
-        winner: i < team1.length ? `Equipo ${teamA.id}` : `Equipo ${teamB.id}`,
+        winner: i < team1.length ? teamA.id : teamB.id,
         statsA: { alive: team1.length - i, defeated: i },
         statsB: { alive: team2.length - j, defeated: j },
       },

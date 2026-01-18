@@ -7,7 +7,7 @@ export const BaseModal = ({ children }) => {
       id="modal"
     >
       <section
-        className={`relative z-10 flex flex-col items-start justify-start rounded-2xl w-[90%] p-10 bg-white shadow-lg max-w-2xl`}
+        className={`relative z-10 flex flex-col items-start justify-start rounded-2xl md:w-[90%] p-10 bg-white shadow-lg max-w-2xl`}
       >
         {children}
       </section>

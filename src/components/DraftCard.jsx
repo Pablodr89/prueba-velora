@@ -10,9 +10,10 @@ export default function DraftCard({ team, isDraft = false }) {
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
       </div>
 
-      <div className="flex items-center gap-3 mt-3 cursor-pointer">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:flex items-center gap-3 md:gap-5 lg:gap-3 mt-3 cursor-pointer">
         {team.pokemons.map((pokemon, index) => (
           <CardPokemonTeamCard
+            key={pokemon.id}
             isDraft={isDraft}
             team={team}
             pokemon={pokemon}

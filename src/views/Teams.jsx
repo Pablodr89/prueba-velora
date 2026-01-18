@@ -13,7 +13,7 @@ export default function Teams() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-start w-full p-4 gap-8">
+    <div className="flex flex-col items-start w-full gap-8">
       <div className="flex justify-end w-full">
         <Button
           text="Empezar combate"

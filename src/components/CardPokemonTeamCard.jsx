@@ -19,13 +19,13 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
         </h2>
       </div>
 
-      <div className="flex w-40 h-40">
+      <div className="flex w-32 h-32 md:w-40 md:h-40">
         <img src={pokemon.image} alt={pokemon.name} className="object-cover" />
       </div>
 
       {isDraft && (
         <Button
-          customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent px-0 py-0"
+          customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
           icon={Delete}
           handledClick={() => removePokemonFromDraft(pokemon.id)}
         />

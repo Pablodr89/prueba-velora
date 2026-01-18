@@ -9,7 +9,7 @@ export default function Combat() {
   const { setShowModalCombatResult } = useContext(ModalsContext);
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-5 w-full pb-5 3xl:pb-0">
       <h2 className="text-3xl font-bold text-center">Combate Pokemon</h2>
 
       <div className="flex items-center justify-start">

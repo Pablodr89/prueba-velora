@@ -17,7 +17,7 @@ export default function CardPokemonCombat({ pokemon }) {
         </h2>
       </div>
 
-      <div className="flex w-40 h-40">
+      <div className="flex w-32 h-32 md:w-40 md:h-40">
         <img src={pokemon.image} alt={pokemon.name} className="object-cover" />
       </div>
     </div>

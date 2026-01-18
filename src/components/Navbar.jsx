@@ -11,7 +11,7 @@ export default function Navbar() {
         </NavLink>
       </div>
 
-      <div className="flex justify-center gap-28 text-white text-lg font-medium">
+      <div className="flex justify-center gap-12 md:gap-28 text-white text-lg font-medium">
         <NavLink to={AppRoutes.Home}>Home</NavLink>
 
         <NavLink to={AppRoutes.Teams}>Equipos</NavLink>

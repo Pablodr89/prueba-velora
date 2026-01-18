@@ -63,12 +63,12 @@ export default function TeamCard({ team, isDraft = false }) {
 
   return (
     <div
-      className={`flex flex-col gap-3  p-4 m-2 rounded-lg shadow-lg ${team.id === teamA?.id || team.id === teamB?.id ? "border-4 border-blue-900" : "border border-gray-300"}`}
+      className={`flex flex-col gap-3 p-4 m-2 rounded-lg shadow-lg ${team.id === teamA?.id || team.id === teamB?.id ? "border-4 border-blue-900" : "border border-gray-300"}`}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between md:items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
 
-        <div className="flex items-center gap-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-5">
           <Button
             text="Orden aleatorio 🔀"
             handledClick={() => handleShuffle()}
@@ -81,7 +81,10 @@ export default function TeamCard({ team, isDraft = false }) {
         </div>
       </div>
 
-      <div ref={parent} className="flex items-center gap-3 mt-3 cursor-pointer">
+      <div
+        ref={parent}
+        className="grid grid-cols-2 md:grid-cols-3 lg:flex items-center gap-3 md:gap-5 lg:gap-3 mt-3 cursor-pointer"
+      >
         {displayPokemons.map((pokemon, index) => (
           <CardPokemonTeamCard
             key={pokemon.id}
@@ -93,13 +96,13 @@ export default function TeamCard({ team, isDraft = false }) {
         ))}
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-0 mt-5">
         <Button
           text="Elegir para combate 🤼"
           handledClick={() => chooseTeamForCombat()}
         />
 
-        <div className="flex items-center justify-end gap-3">
+        <div className="flex flex-col md:flex-row md:items-center justify-end gap-3">
           {hasChanges && (
             <Button text="Guardar equipo 💾" handledClick={() => saveTeam()} />
           )}
