@@ -8,7 +8,7 @@ export default function ButtonFilter({ title, onClickHandler, type }) {
       onClick={onClickHandler}
       className={`px-6 py-2 rounded-full cursor-pointer font-inter text-xs font-bold uppercase tracking-widest transition-all ${
         filterPokemon === type
-          ? "bg-primary text-on-primary/90"
+          ? "bg-primary text-surface"
           : "bg-surface-container hover:bg-surface-variant text-on-surface-variant"
       }`}
     >
