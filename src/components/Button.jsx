@@ -8,9 +8,9 @@ export default function Button({
 }) {
   const typeStyles = {
     PRIMARY:
-      "flex items-center gap-3 text-on-primary/90 text-surface px-4 py-2 rounded-xl text-sm bg-linear-to-br from-primary to-primary-dim font-headline font-bold shadow-[0_8px_24px_rgba(77,86,176,0.15)] hover:scale-95 transition-transform",
+      "flex items-center gap-3 text-on-primary/90 text-surface justify-center px-4 py-2 rounded-xl text-sm bg-linear-to-br from-primary to-primary-dim font-headline font-bold shadow-[0_8px_24px_rgba(77,86,176,0.15)] hover:scale-95 transition-transform",
     SECONDARY:
-      "px-4 py-2 bg-surface-container-highest text-primary font-bold border border-surface-variant text-sm rounded-lg flex items-center gap-2 hover:bg-surface-variant transition-all",
+      "px-4 py-2 bg-surface-container-highest text-primary justify-center font-bold border border-surface-variant text-sm rounded-lg flex items-center gap-2 hover:bg-surface-variant transition-all",
     TERTIARY:
       "px-4 py-2 bg-secondary-container text-secondary font-bold rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-secondary-dim hover:text-on-secondary transition-color",
     NORMAL:
