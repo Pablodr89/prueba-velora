@@ -8,7 +8,7 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full flex justify-between items-center px-8 h-20 bg-on-primary-container/90 backdrop-blur-md dark:bg-slate-950/90 docked full-width z-50 shadow-xl shadow-indigo-900/20 dark:shadow-none">
+    <nav className="fixed top-0 w-full flex justify-between items-center px-8 h-20 bg-on-primary-container/90 backdrop-blur-md docked full-width z-50 shadow-xl shadow-indigo-900/20 dark:shadow-none">
       <div className="flex justify-between items-center gap-8 max-[2000px]:max-w-7xl min-[2000px]:max-w-400 mx-auto w-full">
         <div className="flex items-center gap-12">
           <NavLink to={AppRoutes.Home}>
