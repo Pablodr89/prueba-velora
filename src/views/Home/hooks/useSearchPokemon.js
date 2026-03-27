@@ -6,7 +6,7 @@ export const useSearchPokemon = (name = "") => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["pokemon", name],
     queryFn: async () => {
-      const apiData = await searchPokemon(name);
+      const apiData = await searchPokemon(name.toLowerCase());
       return mapApiPokemon(apiData);
     },
     enabled: !!name && name.trim().length > 0,

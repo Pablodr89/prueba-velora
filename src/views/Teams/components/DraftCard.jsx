@@ -5,7 +5,7 @@ import Button from "../../../components/Button";
 export default function DraftCard({ team, isDraft = false }) {
   const { discardDraft } = usePokemonStore();
   return (
-    <div className={`flex flex-col gap-3 border p-4 m-2 rounded-lg shadow-lg `}>
+    <div className={`flex flex-col gap-3 p-4 m-2 rounded-lg shadow-lg `}>
       <div className="flex justify-between items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
       </div>

@@ -1,3 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme inline {
+  --color-on-primary-fixed-variant: #18217d;
+  --color-secondary-container: #ffdad7;
+  --color-surface-variant: #dce3e9;
+  --color-secondary-fixed-dim: #ffc7c3;
+  --color-primary-fixed: #929bfa;
+  --color-secondary-dim: #a80b1d;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #2c3338;
+  --color-inverse-surface: #0b0f11;
+  --color-on-secondary-container: #a6091c;
+  --color-surface-container-highest: #dce3e;
+  --color-on-tertiary-fixed-variant: #005d5;
+  --color-tertiary-fixed-dim: #71d7cd;
+  --color-error: #a8364b;
+  --color-on-primary-container: #0b1574;
+  --color-tertiary-dim: #005e57;
+  --color-primary: #4d56b0;
+  --color-on-error-container: #6e0523;
+  --color-inverse-on-surface: #9a9da0;
+  --color-on-surface: #2c3338;
+  --color-surface-dim: #d4dbe1;
+  --color-on-secondary-fixed-variant: #b419;
+  --color-tertiary-container: #7fe6db;
+  --color-surface-container-low: #f0f4f8;
+  --color-outline: #747c81;
+  --color-on-secondary-fixed: #850012;
+  --color-on-tertiary: #e2fffa;
+  --color-on-error: #fff7f7;
+  --color-outline-variant: #abb3b9;
+  --color-on-surface-variant: #596065;
+  --color-secondary: #ba1d27;
+  --color-tertiary-fixed: #7fe6db;
+  --color-surface-tint: #4d56b0;
+  --color-surface: #f7f9fc;
+  --color-surface-container: #e9eef3;
+  --color-primary-container: #929bfa;
+  --color-secondary-fixed: #ffdad7;
+  --color-tertiary: #006b64;
+  --color-error-container: #f97386;
+  --color-background: #f7f9fc;
+  --color-on-tertiary-container: #00534d;
+  --color-surface-bright: #f7f9fc;
+  --color-on-tertiary-fixed: #003e39;
+  --color-primary-fixed-dim: #858eec;
+  --color-on-primary: #fbf8ff;
+  --color-surface-container-high: #e3e9ee;
+  --color-on-primary-fixed: #000005;
+  --color-error-dim: #6b0221;
+  --color-inverse-primary: #929bfa;
+  --color-primary-dim: #414aa3;
+  --color-on-secondary: #fff7f6;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: "Inter", sans-serif;
+}
+
+.pokemon-breakout {
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+  transform: translateY(-10%) scale(1.1);
+}

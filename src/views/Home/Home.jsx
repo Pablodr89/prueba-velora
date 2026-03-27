@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { useGetPokemonList } from "./hooks/usePokemonList";
 import { useSearchPokemon } from "./hooks/useSearchPokemon";
 import { useFilterTypePokemon } from "./hooks/useTypePokemon";
 import Card from "./components/Card";
-import SearchBar from "./components/SearchBar";
 import Spinner from "../../components/Spinner/Spinner";
 import Filters from "./components/Filters";
 import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
+import { FiltersContext } from "../../context/ContextFilters";
 
 export default function Home() {
-  const [namePokemon, setNamePokemon] = useState("");
-  const [filterPokemon, setFilterPokemon] = useState("");
+  const { filterPokemon, setFilterPokemon, namePokemon, setNamePokemon } =
+    useContext(FiltersContext);
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
   const { pokemonSearch, isSearchLoading, searchError } =
@@ -35,15 +35,8 @@ export default function Home() {
   }, [fetchNextPage, filterPokemon, hasNextPage, namePokemon]);
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <SearchBar
-        namePokemon={namePokemon}
-        setNamePokemon={setNamePokemon}
-        setFilterPokemon={setFilterPokemon}
-      />
-
+    <div className="flex flex-col items-center w-full pt-20">
       <Filters
-        filterPokemon={filterPokemon}
         setFilterPokemon={setFilterPokemon}
         setNamePokemon={setNamePokemon}
       />

@@ -10,7 +10,7 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
   return (
     <div
       data-label={pokemon.id}
-      className={`flex flex-col border p-2 rounded-lg shadow-md relative ${bgColor}`}
+      className={`flex flex-col p-2 rounded-lg shadow-md relative ${bgColor}`}
       key={`${team.id}-${pokemon.id}-${index}`}
     >
       <div className="flex flex-col justify-between">

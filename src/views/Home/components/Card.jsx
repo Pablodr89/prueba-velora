@@ -21,7 +21,7 @@ export default function Card({ pokemon }) {
 
   return (
     <div
-      className={`flex border p-4 m-2 rounded-lg shadow-lg relative h-40 group ${bgColor}`}
+      className={`flex p-4 m-2 rounded-lg shadow-lg relative h-40 group ${bgColor}`}
     >
       <div className="flex flex-col justify-between w-full">
         <h2 className="text-start text-white md:text-xl capitalize font-semibold">

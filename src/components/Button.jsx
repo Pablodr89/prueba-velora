@@ -9,7 +9,7 @@ export default function Button({
   return (
     <button
       onClick={handledClick}
-      className={`text-white font-bold py-2 px-4 rounded disabled:opacity-50 ${customClasses} ${
+      className={`text-white font-bold py-2 px-4 rounded cursor-pointer disabled:opacity-50 ${customClasses} ${
         deleted
           ? "bg-red-700 hover:bg-red-900"
           : "bg-blue-950 hover:bg-blue-900"
