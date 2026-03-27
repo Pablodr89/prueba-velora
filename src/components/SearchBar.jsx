@@ -2,13 +2,13 @@ import images from "../images/index";
 import { useContext } from "react";
 import { FiltersContext } from "../context/ContextFilters";
 
-export default function SearchBar() {
+export default function SearchBar({ customClasses = "" }) {
   const { setFilterPokemon, namePokemon, setNamePokemon } =
     useContext(FiltersContext);
 
   return (
-    <div className="flex items-center gap-4">
-      <div className="relative hidden sm:block">
+    <div className={`w-full lg:w-auto ${customClasses}`}>
+      <div className="relative">
         <img
           src={images.search}
           alt="search"
@@ -17,8 +17,9 @@ export default function SearchBar() {
 
         <input
           type="text"
+          inputMode="text"
           placeholder="Buscar Pokémon..."
-          className="bg-white/10 border-none outline-none rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder:text-indigo-300/50 w-64 transition-all"
+          className={` bg-white/10 border-none w-full ring-2 ring-indigo-400 lg:outline-none rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder:text-indigo-300/50 lg:w-64 transition-all`}
           value={namePokemon}
           onChange={(e) => {
             setNamePokemon(e.target.value);

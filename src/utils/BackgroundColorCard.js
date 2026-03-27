@@ -1,40 +1,40 @@
 export function getBackgroundColorByType(type) {
   switch (type) {
     case "fire":
-      return "bg-red-700";
+      return "type-fire";
     case "water":
-      return "bg-blue-800";
+      return "type-water";
     case "grass":
-      return "bg-green-600";
+      return "type-grass";
     case "poison":
-      return "bg-purple-900";
+      return "type-poison";
     case "electric":
-      return "bg-yellow-500";
+      return "type-electric";
     case "ground":
-      return "bg-amber-700";
+      return "type-ground";
     case "fairy":
-      return "bg-pink-500";
+      return "type-fairy";
     case "bug":
-      return "bg-emerald-400";
+      return "type-bug";
     case "ghost":
-      return "bg-purple-600";
+      return "type-ghost";
     case "rock":
-      return "bg-stone-500";
+      return "type-rock";
     case "fighting":
-      return "bg-gray-600";
+      return "type-fighting";
     case "psychic":
-      return "bg-violet-400";
+      return "type-psychic";
     case "dark":
-      return "bg-gray-800";
+      return "type-dark";
     case "steel":
-      return "bg-gray-400";
+      return "type-steel";
     case "ice":
-      return "bg-blue-300";
+      return "type-ice";
     case "flying":
-      return "bg-blue-500";
+      return "type-flying";
     case "dragon":
-      return "bg-red-500";
+      return "type-dragon";
     default:
-      return "bg-orange-400";
+      return "type-normal";
   }
 }

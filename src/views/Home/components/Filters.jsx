@@ -5,7 +5,7 @@ export default function Filters({ setFilterPokemon, setNamePokemon }) {
   const types = useGetTypesPokemon();
 
   return (
-    <div className="flex flex-wrap items-center gap-4 w-full px-2.5 mb-5">
+    <div className="flex flex-wrap items-center gap-4 w-full px-2.5">
       <ButtonFilter
         title="All"
         type=""
@@ -15,8 +15,9 @@ export default function Filters({ setFilterPokemon, setNamePokemon }) {
         }}
       />
 
-      {types.map((type) => (
+      {types.map((type, i) => (
         <ButtonFilter
+          key={i}
           title={type}
           type={type}
           onClickHandler={() => {

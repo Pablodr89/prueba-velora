@@ -71,3 +71,93 @@ body {
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
   transform: translateY(-10%) scale(1.1);
 }
+
+.type-fire {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+}
+
+.type-water {
+  background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+}
+
+.type-grass {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.type-electric {
+  background: linear-gradient(135deg, #fcefa1 0%, #f7db4f 100%);
+}
+
+.type-poison {
+  background: linear-gradient(135deg, #a044ff 0%, #6a3093 100%);
+  color: #ffffff;
+}
+
+.type-psychic {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #ffffff;
+}
+
+.type-dragon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.type-ice {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  color: #1a237e;
+}
+
+.type-ground {
+  background: linear-gradient(
+    135deg,
+    #f40752 0%,
+    #f9d423 100%
+  ); /* Editorial interpretation of ground/earth tones */
+  color: #ffffff;
+}
+
+.type-bug {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #ffffff;
+}
+
+.type-flying {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #ffffff;
+}
+
+.type-fairy {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  color: #1a237e;
+}
+
+.type-normal {
+  background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+  color: #ffffff;
+}
+
+.type-ghost {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  color: #ffffff;
+}
+
+.type-rock {
+  background: linear-gradient(135deg, #868f96 0%, #596164 100%);
+  color: #ffffff;
+}
+
+.type-fighting {
+  background: linear-gradient(135deg, #ed1c24 0%, #aa076b 100%);
+  color: #ffffff;
+}
+
+.type-steel {
+  background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+  color: #1a237e;
+}
+
+.type-dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #ffffff;
+}

@@ -11,7 +11,7 @@ export default function Navbar() {
           <img src={images.pokeball} alt="pokeball" className="h-10 w-auto" />
         </NavLink>
 
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="flex gap-8 items-center">
           <NavLink
             className={({ isActive }) =>
               `${isActive ? "text-white border-b-2 border-indigo-300" : "text-indigo-200/70 hover:text-white"} transition-colors font-inter text-xs uppercase tracking-widest pb-1`
@@ -32,7 +32,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <SearchBar />
+      <SearchBar customClasses="hidden lg:inline-block" />
     </nav>
   );
 }
