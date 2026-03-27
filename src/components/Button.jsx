@@ -21,7 +21,7 @@ export default function Button({
   return (
     <button
       onClick={handledClick}
-      className={`${currentTypeStyles} disabled:opacity-50 cursor-pointer ${customClasses}`}
+      className={`${currentTypeStyles} disabled:opacity-50 cursor-pointer text-center ${customClasses}`}
       disabled={disabled}
     >
       {icon ? <img src={icon} alt="icon" className="w-6 h-6" /> : text}

@@ -9,16 +9,69 @@ export default function CardPokemonCombat({ pokemon }) {
 
   return (
     <div
-      className={`flex flex-col border p-2 rounded-lg shadow-md relative ${bgColor} transition-opacity duration-500 ${isDefeated ? "opacity-30 grayscale" : "opacity-100"}`}
+      className={`${isDefeated ? "opacity-30 grayscale" : "opacity-100"} ${bgColor} rounded-xl p-6 flex items-center relative group transition-all duration-500 hover:bg-surface-container`}
     >
-      <div className="flex flex-col justify-between">
-        <h2 className="text-start text-white text-xl capitalize font-semibold">
-          {pokemon.name}
-        </h2>
+      <div className="w-32 h-32 shrink-0 relative z-10">
+        <img
+          alt="pokemon image"
+          className="object-contain w-full h-full"
+          src={pokemon.image}
+        />
       </div>
 
-      <div className="flex w-32 h-32 md:w-40 md:h-40">
-        <img src={pokemon.image} alt={pokemon.name} className="object-cover" />
+      <div className="ml-6 grow">
+        <div className="flex items-center gap-2 mb-3">
+          {pokemon.type.map((type, i) => (
+            <span
+              key={i}
+              className="px-3 py-0.5 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full text-xs font-label uppercase tracking-wider"
+            >
+              {type}
+            </span>
+          ))}
+        </div>
+
+        <h3 className="font-headline font-extrabold text-2xl text-on-primary-container leading-none mb-2 tracking-tight">
+          {pokemon.name}
+        </h3>
+
+        <div className="flex gap-4">
+          <div>
+            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+              DEF
+            </p>
+
+            <p className="font-headline font-bold text-lg text-on-surface">
+              {pokemon.defense}
+            </p>
+          </div>
+
+          <div>
+            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+              ATK
+            </p>
+
+            <p className="font-headline font-bold text-lg text-on-surface">
+              {pokemon.attack}
+            </p>
+          </div>
+
+          <div>
+            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+              SPD
+            </p>
+
+            <p className="font-headline font-bold text-lg text-on-surface">
+              {pokemon.speed}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute right-6 top-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <span className="font-headline font-black text-6xl italic">
+          #{pokemon.id}
+        </span>
       </div>
     </div>
   );

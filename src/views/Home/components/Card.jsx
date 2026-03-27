@@ -26,7 +26,7 @@ export default function Card({ pokemon }) {
       <div className="flex justify-between items-start mb-10 z-10">
         <div>
           <span className="font-inter text-xs font-bold text-white/60 tracking-widest block mb-1">
-            {pokemon.id}
+            #{pokemon.id}
           </span>
 
           <h3 className="font-headline font-bold text-3xl text-white tracking-tight">

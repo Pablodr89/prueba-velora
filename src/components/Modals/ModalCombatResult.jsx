@@ -53,9 +53,9 @@ export default function ModalCombatResult() {
 
         <div className="flex justify-center mt-5">
           <Button
+            typeButton="PRIMARY"
             text="Terminar combate"
             handledClick={() => finishCombat()}
-            customClasses="w-72"
           />
         </div>
       </div>
