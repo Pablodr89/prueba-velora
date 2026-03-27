@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import Home from "./views/Home";
-import Teams from "./views/Teams";
-import Combat from "./views/Combat";
+import Home from "./views/Home/Home";
+import Teams from "./views/Teams/Teams";
+import Combat from "./views/Combat/Combat";
 import { AppRoutes } from "./views/AppRoutes";
 
 export default function App() {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTypesPokemon, getFilterPokemon } from "../api/pokeApi";
-import { mapApiPokemon } from "../mappers/mapApiPokemon";
+import { getTypesPokemon, getFilterPokemon } from "../../../services/pokeApi";
+import { mapApiPokemon } from "../../../mappers/mapApiPokemon";
 import { useMemo } from "react";
 
 export const useGetTypesPokemon = () => {
@@ -19,7 +19,7 @@ export const useGetTypesPokemon = () => {
       ...new Set(
         data
           .filter((t) => t.name !== "unknown" && t.name !== "stellar")
-          .map((t) => t.name)
+          .map((t) => t.name),
       ),
     ];
   }, [data]);
@@ -38,7 +38,7 @@ export const useFilterTypePokemon = (type = "") => {
           const urlPokemon = await fetch(p.pokemon.url);
           const details = await urlPokemon.json();
           return mapApiPokemon(details);
-        })
+        }),
       );
       return pokemonDetail;
     },

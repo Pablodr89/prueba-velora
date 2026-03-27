@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import Pokeball from "../images/pokeball.svg";
 import { AppRoutes } from "../views/AppRoutes";
+import images from "../images/index";
 
 export default function Navbar() {
   return (
     <div className="flex justify-between items-center py-4 px-6 bg-blue-950 w-full">
       <div className="flex justify-start">
         <NavLink to={AppRoutes.Home}>
-          <img src={Pokeball} alt="pokeball" className="h-10 w-auto" />
+          <img src={images.pokeball} alt="pokeball" className="h-10 w-auto" />
         </NavLink>
       </div>
 

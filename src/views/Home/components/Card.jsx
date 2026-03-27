@@ -1,9 +1,9 @@
-import { getBackgroundColorByType } from "../utils/BackgroundColorCard";
-import Plus from "../images/plus.svg";
-import { usePokemonStore } from "../stores/usePokemonStore";
+import { getBackgroundColorByType } from "../../../utils/BackgroundColorCard";
+import { usePokemonStore } from "../../../stores/usePokemonStore";
 import { useContext } from "react";
-import { ModalsContext } from "../context/ContextModals";
-import Button from "./Button";
+import { ModalsContext } from "../../../context/ContextModals";
+import Button from "../../../components/Button";
+import images from "../../../images/index";
 
 export default function Card({ pokemon }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
@@ -30,7 +30,7 @@ export default function Card({ pokemon }) {
 
         <Button
           customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
-          icon={Plus}
+          icon={images.plus}
           handledClick={() => addPokemon(pokemon)}
         />
 

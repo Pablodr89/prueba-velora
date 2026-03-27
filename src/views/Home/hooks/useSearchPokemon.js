@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { searchPokemon } from "../api/pokeApi";
-import { mapApiPokemon } from "../mappers/mapApiPokemon";
+import { searchPokemon } from "../../../services/pokeApi";
+import { mapApiPokemon } from "../../../mappers/mapApiPokemon";
 
 export const useSearchPokemon = (name = "") => {
   const { data, isLoading, isError } = useQuery({

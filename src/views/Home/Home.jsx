@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useGetPokemonList } from "../hooks/usePokemonList";
-import { useSearchPokemon } from "../hooks/useSearchPokemon";
-import { useFilterTypePokemon } from "../hooks/useTypePokemon";
-import Card from "../components/Card";
-import SearchBar from "../components/SearchBar";
-import Spinner from "../components/Spinner/Spinner";
-import Filters from "../components/Filters";
-import ErrorSearchPokemon from "../components/ErrorSearchPokemon";
+import { useGetPokemonList } from "./hooks/usePokemonList";
+import { useSearchPokemon } from "./hooks/useSearchPokemon";
+import { useFilterTypePokemon } from "./hooks/useTypePokemon";
+import Card from "./components/Card";
+import SearchBar from "./components/SearchBar";
+import Spinner from "../../components/Spinner/Spinner";
+import Filters from "./components/Filters";
+import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
 
 export default function Home() {
   const [namePokemon, setNamePokemon] = useState("");

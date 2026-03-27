@@ -1,5 +1,5 @@
 import CardPokemonCombat from "./CardPokemonCombat";
-import { useCombatStore } from "../stores/useCombatStore";
+import { useCombatStore } from "../../../stores/useCombatStore";
 
 export default function TeamCardCombat({ team }) {
   const { gameResult } = useCombatStore();

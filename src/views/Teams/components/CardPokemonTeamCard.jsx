@@ -1,7 +1,7 @@
-import { getBackgroundColorByType } from "../utils/BackgroundColorCard";
-import Delete from "../images/x.svg";
-import Button from "./Button";
-import { usePokemonStore } from "../stores/usePokemonStore";
+import { getBackgroundColorByType } from "../../../utils/BackgroundColorCard";
+import Button from "../../../components/Button";
+import { usePokemonStore } from "../../../stores/usePokemonStore";
+import images from "../../../images/index";
 
 export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
@@ -26,7 +26,7 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
       {isDraft && (
         <Button
           customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
-          icon={Delete}
+          icon={images.deleteIcon}
           handledClick={() => removePokemonFromDraft(pokemon.id)}
         />
       )}

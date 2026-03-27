@@ -1,8 +1,8 @@
-import TeamCardCombat from "../components/TeamCardCombat";
-import Button from "../components/Button";
-import { useCombatStore } from "../stores/useCombatStore";
+import TeamCardCombat from "./Components/TeamCardCombat";
+import Button from "../../components/Button";
+import { useCombatStore } from "../../stores/useCombatStore";
 import { useContext } from "react";
-import { ModalsContext } from "../context/ContextModals";
+import { ModalsContext } from "../../context/ContextModals";
 
 export default function Combat() {
   const { teamA, teamB, runTournament, history, gameResult } = useCombatStore();

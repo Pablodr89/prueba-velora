@@ -1,10 +1,10 @@
-import { usePokemonStore } from "../stores/usePokemonStore";
+import { usePokemonStore } from "../../../stores/usePokemonStore";
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
-import Button from "./Button";
+import Button from "../../../components/Button";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
-import { useCombatStore } from "../stores/useCombatStore";
+import { useCombatStore } from "../../../stores/useCombatStore";
 import { useContext } from "react";
-import { ModalsContext } from "../context/ContextModals";
+import { ModalsContext } from "../../../context/ContextModals";
 
 export default function TeamCard({ team, isDraft = false }) {
   const {

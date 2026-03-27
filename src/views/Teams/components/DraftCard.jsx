@@ -1,6 +1,6 @@
-import { usePokemonStore } from "../stores/usePokemonStore";
+import { usePokemonStore } from "../../../stores/usePokemonStore";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
-import Button from "./Button";
+import Button from "../../../components/Button";
 
 export default function DraftCard({ team, isDraft = false }) {
   const { discardDraft } = usePokemonStore();

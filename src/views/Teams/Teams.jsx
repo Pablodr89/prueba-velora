@@ -1,10 +1,10 @@
-import TeamCard from "../components/TeamCard";
-import DraftCard from "../components/DraftCard";
-import { usePokemonStore } from "../stores/usePokemonStore";
-import Button from "../components/Button";
-import { useCombatStore } from "../stores/useCombatStore";
+import TeamCard from "./components/TeamCard";
+import DraftCard from "./components/DraftCard";
+import { usePokemonStore } from "../../stores/usePokemonStore";
+import Button from "../../components/Button";
+import { useCombatStore } from "../../stores/useCombatStore";
 import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../views/AppRoutes";
+import { AppRoutes } from "../AppRoutes";
 
 export default function Teams() {
   const { teams, draft } = usePokemonStore();

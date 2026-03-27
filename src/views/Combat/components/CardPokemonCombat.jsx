@@ -1,5 +1,5 @@
-import { getBackgroundColorByType } from "../utils/BackgroundColorCard";
-import { useCombatStore } from "../stores/useCombatStore";
+import { getBackgroundColorByType } from "../../../utils/BackgroundColorCard";
+import { useCombatStore } from "../../../stores/useCombatStore";
 
 export default function CardPokemonCombat({ pokemon }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
