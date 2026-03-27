@@ -2,10 +2,12 @@ import { usePokemonStore } from "../../../stores/usePokemonStore";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
 import Button from "../../../components/Button";
 
-export default function DraftCard({ team, isDraft = false }) {
+export default function DraftCard({ team, isDraft = true }) {
   const { discardDraft } = usePokemonStore();
   return (
-    <div className={`flex flex-col gap-3 p-4 m-2 rounded-lg shadow-lg `}>
+    <div
+      className={`flex flex-col gap-3 p-4 m-2 rounded-lg bg-surface-container group hover:shadow-lg transition-shadow`}
+    >
       <div className="flex justify-between items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
       </div>
@@ -24,6 +26,7 @@ export default function DraftCard({ team, isDraft = false }) {
 
       <div className="flex items-center justify-end gap-3">
         <Button
+          typeButton="TERTIARY"
           text="Descartar borrador 🗑"
           handledClick={() => discardDraft(team.id)}
           deleted

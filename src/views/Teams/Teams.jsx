@@ -13,9 +13,10 @@ export default function Teams() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-start w-full gap-8">
+    <div className="flex flex-col items-start w-full gap-8 py-20">
       <div className="flex justify-end w-full">
         <Button
+          typeButton="PRIMARY"
           text="Empezar combate"
           handledClick={() => navigate(AppRoutes.Combat)}
           disabled={!teamA || !teamB}
@@ -25,14 +26,18 @@ export default function Teams() {
       {/* Draft */}
       {draft && (
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold">Borrador actual</h2>
+          <h2 class="font-headline text-3xl font-bold tracking-tight">
+            Borrador Actual
+          </h2>
           <DraftCard team={draft} isDraft />
         </div>
       )}
 
       {/* Equipos cerrados */}
       <div className="flex flex-col gap-3">
-        <h2 className="text-xl font-bold">Equipos</h2>
+        <h2 class="font-headline text-3xl font-bold tracking-tight">
+          Equipos Guardados
+        </h2>
 
         {teamsArray.length === 0 && <p>No hay equipos aún</p>}
 

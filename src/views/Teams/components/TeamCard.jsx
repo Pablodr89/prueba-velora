@@ -63,18 +63,20 @@ export default function TeamCard({ team, isDraft = false }) {
 
   return (
     <div
-      className={`flex flex-col gap-3 p-4 m-2 rounded-lg shadow-lg ${team.id === teamA?.id || team.id === teamB?.id ? "border-4 border-blue-900" : "border border-gray-300"}`}
+      className={`flex flex-col gap-3 p-4 m-2 bg-surface-container rounded-lg group hover:shadow-lg transition-shadow ${team.id === teamA?.id || team.id === teamB?.id ? "border-4 border-blue-900" : "border border-gray-300"}`}
     >
       <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between md:items-center">
         <h2 className="text-black text-lg font-bold mr-2">Equipo {team.id}</h2>
 
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           <Button
+            typeButton="SECONDARY"
             text="Orden aleatorio 🔀"
             handledClick={() => handleShuffle()}
           />
 
           <Button
+            typeButton="SECONDARY"
             text="Ordenar por ataque ⚔️"
             handledClick={() => handleSortAttack()}
           />
@@ -83,7 +85,7 @@ export default function TeamCard({ team, isDraft = false }) {
 
       <div
         ref={parent}
-        className="grid grid-cols-2 md:grid-cols-3 lg:flex items-center gap-3 md:gap-5 lg:gap-3 mt-3 cursor-pointer"
+        className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap items-center gap-3 md:gap-5 lg:gap-3 mt-3"
       >
         {displayPokemons.map((pokemon, index) => (
           <CardPokemonTeamCard
@@ -98,19 +100,24 @@ export default function TeamCard({ team, isDraft = false }) {
 
       <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-0 mt-5">
         <Button
+          typeButton="PRIMARY"
           text="Elegir para combate 🤼"
           handledClick={() => chooseTeamForCombat()}
         />
 
         <div className="flex flex-col md:flex-row md:items-center justify-end gap-3">
           {hasChanges && (
-            <Button text="Guardar equipo 💾" handledClick={() => saveTeam()} />
+            <Button
+              typeButton="PRIMARY"
+              text="Guardar equipo 💾"
+              handledClick={() => saveTeam()}
+            />
           )}
 
           <Button
+            typeButton="TERTIARY"
             text="Eliminar equipo 🗑"
             handledClick={() => removeTeam(team.id)}
-            deleted
           />
         </div>
       </div>

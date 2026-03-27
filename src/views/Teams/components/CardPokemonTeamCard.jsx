@@ -1,7 +1,6 @@
 import { getBackgroundColorByType } from "../../../utils/BackgroundColorCard";
 import Button from "../../../components/Button";
 import { usePokemonStore } from "../../../stores/usePokemonStore";
-import images from "../../../images/index";
 
 export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
@@ -10,7 +9,7 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
   return (
     <div
       data-label={pokemon.id}
-      className={`flex flex-col p-2 rounded-lg shadow-md relative ${bgColor}`}
+      className={`flex flex-col p-2 ${isDraft && "w-52"} rounded-lg shadow-md relative ${bgColor}`}
       key={`${team.id}-${pokemon.id}-${index}`}
     >
       <div className="flex flex-col justify-between">
@@ -25,8 +24,9 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
 
       {isDraft && (
         <Button
+          typeButton="NORMAL"
+          text="x"
           customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
-          icon={images.deleteIcon}
           handledClick={() => removePokemonFromDraft(pokemon.id)}
         />
       )}
