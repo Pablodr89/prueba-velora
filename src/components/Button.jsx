@@ -12,7 +12,7 @@ export default function Button({
     SECONDARY:
       "px-4 py-2 bg-surface-container-highest text-primary font-bold border border-surface-variant text-sm rounded-lg flex items-center gap-2 hover:bg-surface-variant transition-all",
     TERTIARY:
-      "w-full px-4 py-2 bg-secondary-container text-secondary font-bold rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-secondary-dim hover:text-on-secondary transition-color",
+      "px-4 py-2 bg-secondary-container text-secondary font-bold rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-secondary-dim hover:text-on-secondary transition-color",
     NORMAL:
       "w-12 h-12 rounded-2xl cursor-pointer bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 transition-all hover:bg-white hover:text-blue-600",
   };

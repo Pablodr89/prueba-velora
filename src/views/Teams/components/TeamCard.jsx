@@ -3,7 +3,7 @@ import { useDragAndDrop } from "@formkit/drag-and-drop/react";
 import Button from "../../../components/Button";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
 import { useCombatStore } from "../../../stores/useCombatStore";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ModalsContext } from "../../../context/ContextModals";
 
 export default function TeamCard({ team, isDraft = false }) {
@@ -15,11 +15,12 @@ export default function TeamCard({ team, isDraft = false }) {
     tempOrders,
     setManualOrder,
   } = usePokemonStore();
-  const { selectTeam, teamA, teamB } = useCombatStore();
+  const { selectTeam, teamA, teamB, discardTeam } = useCombatStore();
   const { setShowModalSaveTeam, setShowModalSelectedTeam } =
     useContext(ModalsContext);
   const initialPokemons = tempOrders[team.id] || team.pokemons;
   const hasChanges = !!tempOrders[team.id];
+  const [teamChoosed, setTeamChoosed] = useState(false);
   const [parent, displayPokemons, setValues] = useDragAndDrop(initialPokemons, {
     // Esta función se dispara cada vez que terminas de arrastrar
     onDragend: (data) => {
@@ -55,6 +56,7 @@ export default function TeamCard({ team, isDraft = false }) {
 
   const chooseTeamForCombat = () => {
     selectTeam(team);
+    setTeamChoosed(true);
     setShowModalSelectedTeam(true);
     setTimeout(() => {
       setShowModalSelectedTeam(false);
@@ -99,11 +101,22 @@ export default function TeamCard({ team, isDraft = false }) {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-0 mt-5">
-        <Button
-          typeButton="PRIMARY"
-          text="Elegir para combate 🤼"
-          handledClick={() => chooseTeamForCombat()}
-        />
+        {teamChoosed ? (
+          <Button
+            typeButton="TERTIARY"
+            text="Descartar equipo"
+            handledClick={() => {
+              discardTeam(team);
+              setTeamChoosed(false);
+            }}
+          />
+        ) : (
+          <Button
+            typeButton="PRIMARY"
+            text="Elegir para combate 🤼"
+            handledClick={() => chooseTeamForCombat()}
+          />
+        )}
 
         <div className="flex flex-col md:flex-row md:items-center justify-end gap-3">
           {hasChanges && (

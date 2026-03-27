@@ -40,6 +40,19 @@ export const useCombatStore = create((set, get) => ({
     }));
   },
 
+  discardTeam: (team) => {
+    const { teamA } = get();
+    if (teamA.id === team.id) {
+      set(() => ({
+        teamA: null,
+      }));
+    } else {
+      set(() => ({
+        teamB: null,
+      }));
+    }
+  },
+
   runTournament: async () => {
     const { teamA, teamB } = get();
     if (!teamA || !teamB) return;
