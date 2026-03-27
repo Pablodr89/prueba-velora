@@ -36,8 +36,8 @@ export default function Card({ pokemon }) {
 
         <Button
           onClick={() => addPokemon(pokemon)}
+          typeButton="NORMAL"
           text="+"
-          customClasses="w-12 h-12 rounded-2xl cursor-pointer bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 transition-all hover:bg-white hover:text-blue-600"
         />
       </div>
 

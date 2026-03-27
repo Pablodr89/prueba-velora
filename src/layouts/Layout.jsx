@@ -15,7 +15,7 @@ export default function Layout() {
     <>
       <Navbar />
 
-      <main className="flex flex-col items-center w-full h-full px-5 md:px-10 lg:px-20 pt-10 relative">
+      <main className="flex flex-col items-center w-full h-full px-5 lg:px-0 pt-10 relative max-[2000px]:max-w-7xl min-[2000px]:max-w-400 mx-auto">
         <Outlet />
 
         {showModalPokemonAdded && (
