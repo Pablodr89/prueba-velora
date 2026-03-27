@@ -3,7 +3,7 @@ import "./Modal.css";
 export const BaseModal = ({ children }) => {
   return (
     <div
-      className="animate-in bg-modal fixed top-0 left-0 z-[60] flex h-full w-full flex-col items-center justify-center overflow-auto"
+      className="animate-in bg-modal fixed top-0 left-0 z-60 flex h-full w-full flex-col items-center justify-center overflow-auto"
       id="modal"
     >
       <section

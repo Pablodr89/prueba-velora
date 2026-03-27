@@ -23,7 +23,7 @@ export default function Combat() {
           <Button
             typeButton="PRIMARY"
             text="Iniciar Combate"
-            handledClick={() => {
+            onClickHandler={() => {
               runTournament();
               setCombatOn(true);
             }}
@@ -38,7 +38,7 @@ export default function Combat() {
           <Button
             typeButton="PRIMARY"
             text="Ver resultados"
-            handledClick={() => setShowModalCombatResult(true)}
+            onClickHandler={() => setShowModalCombatResult(true)}
             customClasses="w-72 flex justify-center items-center text-xl"
           />
         </div>

@@ -1,6 +1,6 @@
 export default function Button({
   text = null,
-  handledClick,
+  onClickHandler,
   customClasses = "",
   icon = null,
   disabled = false,
@@ -20,7 +20,7 @@ export default function Button({
 
   return (
     <button
-      onClick={handledClick}
+      onClick={onClickHandler}
       className={`${currentTypeStyles} disabled:opacity-50 cursor-pointer text-center ${customClasses}`}
       disabled={disabled}
     >

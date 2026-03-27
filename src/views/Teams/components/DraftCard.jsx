@@ -28,7 +28,7 @@ export default function DraftCard({ team, isDraft = true }) {
         <Button
           typeButton="TERTIARY"
           text="Descartar borrador 🗑"
-          handledClick={() => discardDraft(team.id)}
+          onClickHandler={() => discardDraft(team.id)}
           deleted
         />
       </div>

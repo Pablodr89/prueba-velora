@@ -74,13 +74,13 @@ export default function TeamCard({ team, isDraft = false }) {
           <Button
             typeButton="SECONDARY"
             text="Orden aleatorio 🔀"
-            handledClick={() => handleShuffle()}
+            onClickHandler={() => handleShuffle()}
           />
 
           <Button
             typeButton="SECONDARY"
             text="Ordenar por ataque ⚔️"
-            handledClick={() => handleSortAttack()}
+            onClickHandler={() => handleSortAttack()}
           />
         </div>
       </div>
@@ -105,7 +105,7 @@ export default function TeamCard({ team, isDraft = false }) {
           <Button
             typeButton="TERTIARY"
             text="Descartar equipo"
-            handledClick={() => {
+            onClickHandler={() => {
               discardTeam(team);
               setTeamChoosed(false);
             }}
@@ -114,7 +114,7 @@ export default function TeamCard({ team, isDraft = false }) {
           <Button
             typeButton="PRIMARY"
             text="Elegir para combate 🤼"
-            handledClick={() => chooseTeamForCombat()}
+            onClickHandler={() => chooseTeamForCombat()}
           />
         )}
 
@@ -123,14 +123,14 @@ export default function TeamCard({ team, isDraft = false }) {
             <Button
               typeButton="PRIMARY"
               text="Guardar equipo 💾"
-              handledClick={() => saveTeam()}
+              onClickHandler={() => saveTeam()}
             />
           )}
 
           <Button
             typeButton="TERTIARY"
             text="Eliminar equipo 🗑"
-            handledClick={() => removeTeam(team.id)}
+            onClickHandler={() => removeTeam(team.id)}
           />
         </div>
       </div>

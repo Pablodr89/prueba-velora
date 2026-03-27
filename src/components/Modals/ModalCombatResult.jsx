@@ -55,7 +55,7 @@ export default function ModalCombatResult() {
           <Button
             typeButton="PRIMARY"
             text="Terminar combate"
-            handledClick={() => finishCombat()}
+            onClickHandler={() => finishCombat()}
           />
         </div>
       </div>

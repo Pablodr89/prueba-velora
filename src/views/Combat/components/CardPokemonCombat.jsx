@@ -31,37 +31,37 @@ export default function CardPokemonCombat({ pokemon }) {
           ))}
         </div>
 
-        <h3 className="font-headline font-extrabold text-2xl text-on-primary-container leading-none mb-2 tracking-tight">
+        <h3 className="font-headline font-extrabold capitalize text-2xl text-on-primary-container leading-none mb-2 tracking-tight">
           {pokemon.name}
         </h3>
 
         <div className="flex gap-4">
           <div>
-            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
               DEF
             </p>
 
-            <p className="font-headline font-bold text-lg text-on-surface">
+            <p className="font-headline font-bold text-lg text-surface">
               {pokemon.defense}
             </p>
           </div>
 
           <div>
-            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
               ATK
             </p>
 
-            <p className="font-headline font-bold text-lg text-on-surface">
+            <p className="font-headline font-bold text-lg text-surface">
               {pokemon.attack}
             </p>
           </div>
 
           <div>
-            <p className="font-label text-[10px] uppercase text-outline font-bold tracking-widest">
+            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
               SPD
             </p>
 
-            <p className="font-headline font-bold text-lg text-on-surface">
+            <p className="font-headline font-bold text-lg text-surface">
               {pokemon.speed}
             </p>
           </div>

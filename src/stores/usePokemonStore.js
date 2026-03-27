@@ -18,7 +18,7 @@ export const usePokemonStore = create(
       tempOrders: {},
       draft: null,
 
-      addPokemonAuto: (pokemon) =>
+      addPokemonToTeam: (pokemon) =>
         set((state) => {
           const currentTeams = Array.isArray(state.teams) ? state.teams : [];
           let currentDraft = state.draft;
@@ -38,6 +38,9 @@ export const usePokemonStore = create(
               pokemons: updatedPokemons,
               isDraft: false,
             };
+
+            alert("El equipo se ha completado.");
+
             return {
               teams: [...currentTeams, finalTeam],
               draft: null,
@@ -106,7 +109,7 @@ export const usePokemonStore = create(
           if (!newOrder) return state;
 
           const updatedTeams = state.teams.map((t) =>
-            t.id === teamId ? { ...t, pokemons: newOrder } : t
+            t.id === teamId ? { ...t, pokemons: newOrder } : t,
           );
 
           // Limpiamos el temporal de este equipo tras guardar
@@ -125,7 +128,7 @@ export const usePokemonStore = create(
 
           // Creamos un nuevo array filtrado
           const updatedPokemons = state.draft.pokemons.filter(
-            (p) => p.id !== pokemonId
+            (p) => p.id !== pokemonId,
           );
 
           // Si ya no quedan pokemons, eliminamos el borrador por completo
@@ -147,6 +150,6 @@ export const usePokemonStore = create(
       name: "pokemon-storage",
       // Evitamos que tempOrders se guarde en el localStorage
       partialize: (state) => ({ teams: state.teams, draft: state.draft }),
-    }
-  )
+    },
+  ),
 );

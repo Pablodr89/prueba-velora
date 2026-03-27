@@ -27,7 +27,7 @@ export default function CardPokemonTeamCard({ isDraft, pokemon, team, index }) {
           typeButton="NORMAL"
           text="x"
           customClasses="absolute top-2 right-2 bg-transparent hover:bg-transparent !px-0 !py-0"
-          handledClick={() => removePokemonFromDraft(pokemon.id)}
+          onClickHandler={() => removePokemonFromDraft(pokemon.id)}
         />
       )}
     </div>

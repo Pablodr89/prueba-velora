@@ -19,17 +19,17 @@ export default function Layout() {
         <Outlet />
 
         {showModalPokemonAdded && (
-          <div className="w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
+          <div className="animate-in w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
             <p className="text-white p-5">¡Pokémon añadido al borrador!</p>
           </div>
         )}
         {showModalSaveTeam && (
-          <div className="w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
+          <div className="animate-in w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
             <p className="text-white p-5">¡Equipo guardado con éxito!</p>
           </div>
         )}
         {showModalSelectedTeam && (
-          <div className="w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
+          <div className="animate-in w-72 bg-blue-950 rounded-lg fixed right-4 bottom-4 z-50 shadow-2xl animate-bounce-short">
             <p className="text-white p-5">¡Equipo elegido para combate!</p>
           </div>
         )}

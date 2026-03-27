@@ -18,7 +18,7 @@ export default function Teams() {
         <Button
           typeButton="PRIMARY"
           text="Empezar combate"
-          handledClick={() => navigate(AppRoutes.Combat)}
+          onClickHandler={() => navigate(AppRoutes.Combat)}
           disabled={!teamA || !teamB}
         />
       </div>
@@ -26,7 +26,7 @@ export default function Teams() {
       {/* Draft */}
       {draft && (
         <div className="flex flex-col gap-3">
-          <h2 class="font-headline text-3xl font-bold tracking-tight">
+          <h2 className="font-headline text-3xl font-bold tracking-tight">
             Borrador Actual
           </h2>
           <DraftCard team={draft} isDraft />
@@ -35,7 +35,7 @@ export default function Teams() {
 
       {/* Equipos cerrados */}
       <div className="flex flex-col gap-3">
-        <h2 class="font-headline text-3xl font-bold tracking-tight">
+        <h2 className="font-headline text-3xl font-bold tracking-tight">
           Equipos Guardados
         </h2>
 

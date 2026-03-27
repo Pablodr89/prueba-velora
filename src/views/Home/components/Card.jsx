@@ -6,11 +6,12 @@ import Button from "../../../components/Button";
 
 export default function Card({ pokemon }) {
   const bgColor = getBackgroundColorByType(pokemon.type[0]);
-  const { addPokemonAuto } = usePokemonStore();
+  const { addPokemonToTeam } = usePokemonStore();
   const { setShowModalPokemonAdded } = useContext(ModalsContext);
 
-  const addPokemon = (pokemon) => {
-    addPokemonAuto(pokemon);
+  const addPokemon = () => {
+    addPokemonToTeam(pokemon);
+    console.log("pokemon added");
     setShowModalPokemonAdded(true);
 
     setTimeout(() => {
@@ -29,13 +30,13 @@ export default function Card({ pokemon }) {
             #{pokemon.id}
           </span>
 
-          <h3 className="font-headline font-bold text-3xl text-white tracking-tight">
+          <h3 className="font-headline capitalize font-bold text-3xl text-white tracking-tight">
             {pokemon.name}
           </h3>
         </div>
 
         <Button
-          onClick={() => addPokemon(pokemon)}
+          onClickHandler={() => addPokemon()}
           typeButton="NORMAL"
           text="+"
         />
