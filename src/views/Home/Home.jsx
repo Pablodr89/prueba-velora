@@ -36,7 +36,7 @@ export default function Home() {
   }, [fetchNextPage, filterPokemon, hasNextPage, namePokemon]);
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full pt-20">
+    <div className="animate-in flex flex-col items-center gap-8 w-full pt-20">
       <SearchBar customClasses="lg:hidden" />
 
       <Filters

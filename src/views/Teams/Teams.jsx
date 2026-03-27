@@ -13,7 +13,7 @@ export default function Teams() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-start w-full gap-8 py-20">
+    <div className="animate-in flex flex-col items-start w-full gap-8 py-20">
       <div className="flex justify-end w-full">
         <Button
           typeButton="PRIMARY"

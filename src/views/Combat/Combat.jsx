@@ -10,7 +10,7 @@ export default function Combat() {
   const [combatOn, setCombatOn] = useState(false);
 
   return (
-    <div className="flex flex-col gap-5 w-full pb-5 3xl:pb-0 pt-20">
+    <div className="animate-in flex flex-col gap-5 w-full pb-5 3xl:pb-0 pt-20">
       <div className="flex flex-col gap-6 mb-5">
         <h1 className="text-center font-headline font-extrabold text-5xl md:text-6xl text-on-primary-container tracking-tighter">
           Combate Pokemon
