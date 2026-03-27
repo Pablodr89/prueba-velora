@@ -31,7 +31,7 @@ export default function CardPokemonCombat({ pokemon }) {
           ))}
         </div>
 
-        <h3 className="font-headline font-extrabold capitalize text-2xl text-on-primary-container leading-none mb-2 tracking-tight">
+        <h3 className="font-headline font-extrabold capitalize text-2xl text-on-primary/90-container leading-none mb-2 tracking-tight">
           {pokemon.name}
         </h3>
 

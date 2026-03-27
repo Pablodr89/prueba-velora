@@ -12,7 +12,7 @@ export default function Combat() {
   return (
     <div className="animate-in flex flex-col gap-5 w-full pb-5 3xl:pb-0 pt-20">
       <div className="flex flex-col gap-6 mb-5">
-        <h1 className="text-center font-headline font-extrabold text-5xl md:text-6xl text-on-primary-container tracking-tighter">
+        <h1 className="text-center font-headline font-extrabold text-5xl md:text-6xl text-on-primary/90-container tracking-tighter">
           Combate Pokemon
         </h1>
         <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>

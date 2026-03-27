@@ -19,7 +19,11 @@
   display: block;
   width: 25%;
   height: 25%;
-  background-color: #0b1574;
+  background-color: color-mix(
+    in oklab,
+    var(--color-slate-950) 90%,
+    transparent
+  );
   border-radius: 100%;
   animation: sk-chase-dot-before 2s infinite ease-in-out both;
 }
