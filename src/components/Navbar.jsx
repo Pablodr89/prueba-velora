@@ -18,7 +18,7 @@ export default function Navbar() {
           <div className="flex gap-8 items-center">
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-white border-b-2 border-indigo-300" : "text-indigo-200/70 hover:text-white"} transition-colors font-inter text-xs uppercase tracking-widest pb-1`
+                `${isActive ? "text-surface border-b-2 border-indigo-300" : "text-indigo-200/70 hover:text-surface"} transition-colors font-inter text-xs uppercase tracking-widest pb-1`
               }
               to={AppRoutes.Home}
             >
@@ -27,7 +27,7 @@ export default function Navbar() {
 
             <NavLink
               className={({ isActive }) =>
-                `${isActive ? "text-white border-b-2 border-indigo-300" : "text-indigo-200/70 hover:text-white"} transition-colors font-inter text-xs uppercase tracking-widest pb-1`
+                `${isActive ? "text-surface border-b-2 border-indigo-300" : "text-indigo-200/70 hover:text-surface"} transition-colors font-inter text-xs uppercase tracking-widest pb-1`
               }
               to={AppRoutes.Teams}
             >

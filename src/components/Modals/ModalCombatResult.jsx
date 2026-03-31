@@ -18,21 +18,36 @@ export default function ModalCombatResult() {
     // Reiniciar el estado del combate
     combatEnded();
   };
+
   return (
     <BaseModal>
-      <div className="flex h-full w-full flex-col items-center gap-6">
-        <h3 className="md:text-2xl text-center font-semibold mb-2">
+      <div className="flex items-center bg-on-primary/90 w-full p-2 rounded-t-lg">
+        <h3 className="md:text-xl text-surface font-semibold">
           Historial de Combates
         </h3>
+      </div>
 
-        <div className="flex flex-col gap-2 max-h-64 overflow-y-auto w-full">
+      <div className="flex h-full w-full flex-col items-center gap-6 pb-10">
+        <div className="flex flex-col gap-2 px-5 pt-5 items-center overflow-y-auto w-full">
           {history.map((combat, index) => (
-            <p className="md:text-xl font-medium" key={index}>
-              Combate {index + 1}:{" "}
-              <span className="capitalize">{combat.match[0]}</span> vs{" "}
-              <span className="capitalize">{combat.match[1]}</span> - Ganador:{" "}
-              <span className="font-bold capitalize">{combat.winner}</span>
-            </p>
+            <>
+              <p className="md:text-xl font-medium" key={index}>
+                Combate {index + 1}:{" "}
+                <span className="capitalize">{combat.match[0]}</span> vs{" "}
+                <span className="capitalize">{combat.match[1]}</span>{" "}
+                <span className="capitalize hidden lg:inline-block">
+                  - Ganador:
+                </span>
+                <span className="font-bold capitalize hidden lg:inline-block">
+                  {combat.winner}
+                </span>
+              </p>
+
+              <p className="md:text-xl font-medium lg:hidden">
+                Ganador:{" "}
+                <span className="font-bold capitalize">{combat.winner}</span>
+              </p>
+            </>
           ))}
         </div>
 
@@ -47,11 +62,11 @@ export default function ModalCombatResult() {
           </p>
         </div>
 
-        <h3 className="text-4xl font-semibold mb-2">
+        <h3 className="text-4xl font-semibold text-green-600">
           Ganador: Equipo {gameResult.winner}
         </h3>
 
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center">
           <Button
             typeButton="PRIMARY"
             text="Terminar combate"
