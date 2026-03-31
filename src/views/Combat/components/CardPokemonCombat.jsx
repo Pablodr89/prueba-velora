@@ -9,7 +9,7 @@ export default function CardPokemonCombat({ pokemon }) {
 
   return (
     <div
-      className={`${isDefeated ? "opacity-30 grayscale" : "opacity-100"} ${bgColor} rounded-xl p-6 flex items-center relative group transition-all duration-500 hover:bg-surface-container`}
+      className={`${isDefeated ? "opacity-30 grayscale" : "opacity-100"} ${bgColor} rounded-xl p-3 lg:p-6 flex flex-col lg:flex-row items-center relative group transition-all duration-500 hover:bg-surface-container`}
     >
       <div className="w-32 h-32 shrink-0 relative z-10">
         <img
@@ -19,7 +19,7 @@ export default function CardPokemonCombat({ pokemon }) {
         />
       </div>
 
-      <div className="ml-6 grow">
+      <div className="hidden lg:inline-block ml-6 grow">
         <div className="flex items-center gap-2 mb-3">
           {pokemon.type.map((type, i) => (
             <span
@@ -31,13 +31,13 @@ export default function CardPokemonCombat({ pokemon }) {
           ))}
         </div>
 
-        <h3 className="font-headline font-extrabold capitalize text-2xl text-on-primary/90-container leading-none mb-2 tracking-tight">
+        <h3 className="font-headline font-extrabold capitalize text-surface text-2xl text-on-primary/90-container leading-none mb-2 tracking-tight">
           {pokemon.name}
         </h3>
 
         <div className="flex gap-4">
           <div>
-            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
+            <p className="font-label text-sm uppercase text-black font-bold tracking-widest">
               DEF
             </p>
 
@@ -47,7 +47,7 @@ export default function CardPokemonCombat({ pokemon }) {
           </div>
 
           <div>
-            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
+            <p className="font-label text-sm uppercase text-black font-bold tracking-widest">
               ATK
             </p>
 
@@ -57,7 +57,7 @@ export default function CardPokemonCombat({ pokemon }) {
           </div>
 
           <div>
-            <p className="font-label text-[10px] uppercase text-outline/80 font-bold tracking-widest">
+            <p className="font-label text-sm uppercase text-black font-bold tracking-widest">
               SPD
             </p>
 
@@ -68,7 +68,7 @@ export default function CardPokemonCombat({ pokemon }) {
         </div>
       </div>
 
-      <div className="absolute right-6 top-6 opacity-10 group-hover:opacity-20 transition-opacity">
+      <div className="hidden lg:inline-block absolute right-6 top-6 opacity-10 group-hover:opacity-20 transition-opacity">
         <span className="font-headline font-black text-6xl italic">
           #{pokemon.id}
         </span>

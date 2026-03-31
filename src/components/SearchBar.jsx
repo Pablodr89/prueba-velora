@@ -19,7 +19,7 @@ export default function SearchBar({ customClasses = "" }) {
           type="text"
           inputMode="text"
           placeholder="Buscar Pokémon..."
-          className={` bg-white/10 border-none w-full ring-2 ring-indigo-400 lg:outline-none rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder:text-indigo-300/50 lg:w-64 transition-all`}
+          className={` bg-white/10 border-none w-full ring-2 ring-indigo-400 lg:outline-none rounded-lg pl-10 pr-4 py-2 text-sm text-indigo-400 lg:text-white placeholder:text-indigo-300/50 lg:w-64 transition-all`}
           value={namePokemon}
           onChange={(e) => {
             setNamePokemon(e.target.value);

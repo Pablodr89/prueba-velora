@@ -44,7 +44,7 @@ export default function Combat() {
         </div>
       )}
 
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="grid grid-cols-2 gap-6 lg:gap-12 items-start">
         <div className="space-y-8">
           <div class="flex items-baseline justify-between px-2">
             <h2 class="font-headline font-bold text-2xl text-on-surface uppercase tracking-tight">
