@@ -1,10 +1,8 @@
 import images from "../images/index";
-import { useContext } from "react";
-import { FiltersContext } from "../context/ContextFilters";
+import { useSearchStore } from "../stores/useSearchStore";
 
 export default function SearchBar({ customClasses = "" }) {
-  const { setFilterPokemon, namePokemon, setNamePokemon } =
-    useContext(FiltersContext);
+  const { namePokemon, setNamePokemon } = useSearchStore();
 
   return (
     <div className={`w-full lg:w-auto ${customClasses}`}>
@@ -23,7 +21,6 @@ export default function SearchBar({ customClasses = "" }) {
           value={namePokemon}
           onChange={(e) => {
             setNamePokemon(e.target.value);
-            setFilterPokemon("");
           }}
         />
       </div>

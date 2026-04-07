@@ -1,4 +1,4 @@
-import { useEffect, useRef, useContext } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGetPokemonList } from "./hooks/usePokemonList";
 import { useSearchPokemon } from "./hooks/useSearchPokemon";
 import { useFilterTypePokemon } from "./hooks/useTypePokemon";
@@ -6,24 +6,26 @@ import Card from "./components/Card";
 import Spinner from "../../components/Spinner/Spinner";
 import Filters from "./components/Filters";
 import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
-import { FiltersContext } from "../../context/ContextFilters";
 import SearchBar from "../../components/SearchBar";
 
 export default function Home() {
-  const { filterPokemon, setFilterPokemon, namePokemon, setNamePokemon } =
-    useContext(FiltersContext);
+  const [filterType, setFilterType] = useState("");
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
-  const { pokemonSearch, isSearchLoading, searchError } =
-    useSearchPokemon(namePokemon);
-  const { pokemonFilter, isFilterLoading } =
-    useFilterTypePokemon(filterPokemon);
+  const {
+    pokemonSearch,
+    isSearchLoading,
+    searchError,
+    namePokemon,
+    setNamePokemon,
+  } = useSearchPokemon();
+  const { pokemonFilter, isFilterLoading } = useFilterTypePokemon(filterType);
 
   const loadMoreRef = useRef();
 
   useEffect(() => {
     if (!loadMoreRef.current) return;
-    if (namePokemon || filterPokemon) return;
+    if (namePokemon) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && hasNextPage) {
         fetchNextPage();
@@ -33,15 +35,16 @@ export default function Home() {
     observer.observe(loadMoreRef.current);
 
     return () => observer.disconnect();
-  }, [fetchNextPage, filterPokemon, hasNextPage, namePokemon]);
+  }, [fetchNextPage, hasNextPage, namePokemon]);
 
   return (
     <div className="animate-in flex flex-col items-center gap-8 w-full pt-20">
       <SearchBar customClasses="lg:hidden" />
 
       <Filters
-        setFilterPokemon={setFilterPokemon}
         setNamePokemon={setNamePokemon}
+        filterType={filterType}
+        setFilterType={setFilterType}
       />
 
       {isLoading || isSearchLoading || isFilterLoading ? (
@@ -50,14 +53,14 @@ export default function Home() {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5 h-full w-full">
-          {namePokemon ? (
+          {pokemonSearch ? (
             // Si hay búsqueda activa
             searchError ? (
               <ErrorSearchPokemon namePokemon={namePokemon} />
             ) : (
-              pokemonSearch && <Card pokemon={pokemonSearch} />
+              <Card pokemon={pokemonSearch} />
             )
-          ) : filterPokemon ? (
+          ) : pokemonFilter ? (
             pokemonFilter.map((pokemon) => (
               <Card key={pokemon.id} pokemon={pokemon} />
             ))

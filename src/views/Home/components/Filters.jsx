@@ -1,7 +1,7 @@
 import ButtonFilter from "../../../components/ButtonFilter";
 import { useGetTypesPokemon } from "../hooks/useTypePokemon";
 
-export default function Filters({ setFilterPokemon, setNamePokemon }) {
+export default function Filters({ setNamePokemon, filterType, setFilterType }) {
   const types = useGetTypesPokemon();
 
   return (
@@ -10,9 +10,10 @@ export default function Filters({ setFilterPokemon, setNamePokemon }) {
         title="All"
         type=""
         onClickHandler={() => {
-          setFilterPokemon("");
+          setFilterType("");
           setNamePokemon("");
         }}
+        filterType={filterType}
       />
 
       {types.map((type, i) => (
@@ -21,9 +22,10 @@ export default function Filters({ setFilterPokemon, setNamePokemon }) {
           title={type}
           type={type}
           onClickHandler={() => {
-            setFilterPokemon(type);
+            setFilterType(type);
             setNamePokemon("");
           }}
+          filterType={filterType}
         />
       ))}
     </div>
