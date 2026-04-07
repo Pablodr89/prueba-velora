@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 import CardPokemonTeamCard from "./CardPokemonTeamCard";
 import { useCombatStore } from "../../../stores/useCombatStore";
 import { useContext, useState } from "react";
-import { ModalsContext } from "../../../context/ContextModals";
+import { ModalsContext } from "../../../context/Contexts";
 
 export default function TeamCard({ team, isDraft = false }) {
   const {

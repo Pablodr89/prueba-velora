@@ -1,10 +1,10 @@
 import images from "../images/index";
-import { useFilterStore } from "../stores/useFilterStore";
-import { useSearchStore } from "../stores/useSearchStore";
+import { useSearchPokemon } from "../views/Home/hooks/useSearchPokemon";
+import { useFilterTypePokemon } from "../views/Home/hooks/useTypePokemon";
 
 export default function SearchBar({ customClasses = "" }) {
-  const { namePokemon, setNamePokemon } = useSearchStore();
-  const { setFilterType } = useFilterStore();
+  const { namePokemon, setNamePokemon } = useSearchPokemon();
+  const { setTypePokemon } = useFilterTypePokemon();
 
   return (
     <div className={`w-full lg:w-auto ${customClasses}`}>
@@ -23,7 +23,7 @@ export default function SearchBar({ customClasses = "" }) {
           value={namePokemon}
           onChange={(e) => {
             setNamePokemon(e.target.value);
-            setFilterType("");
+            setTypePokemon("");
           }}
         />
       </div>

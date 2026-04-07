@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useContext } from "react";
-import { ModalsContext } from "../context/ContextModals";
+import { ModalsContext } from "../context/Contexts";
 import ModalCombatResult from "../components/Modals/ModalCombatResult";
 
 export default function Layout() {

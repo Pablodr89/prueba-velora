@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ModalsContext } from "./ContextModals";
+import { useMemo, useState } from "react";
+import { ModalsContext } from "./Contexts";
 
 export const ModalsContextProvider = ({ children }) => {
   const [showModalPokemonAdded, setShowModalPokemonAdded] = useState(false);
@@ -7,20 +7,26 @@ export const ModalsContextProvider = ({ children }) => {
   const [showModalSelectedTeam, setShowModalSelectedTeam] = useState(false);
   const [showModalCombatResult, setShowModalCombatResult] = useState(false);
 
+  const value = useMemo(
+    () => ({
+      showModalPokemonAdded,
+      setShowModalPokemonAdded,
+      showModalSaveTeam,
+      setShowModalSaveTeam,
+      showModalSelectedTeam,
+      setShowModalSelectedTeam,
+      showModalCombatResult,
+      setShowModalCombatResult,
+    }),
+    [
+      showModalPokemonAdded,
+      showModalSaveTeam,
+      showModalSelectedTeam,
+      showModalCombatResult,
+    ],
+  );
+
   return (
-    <ModalsContext.Provider
-      value={{
-        showModalPokemonAdded,
-        setShowModalPokemonAdded,
-        showModalSaveTeam,
-        setShowModalSaveTeam,
-        showModalSelectedTeam,
-        setShowModalSelectedTeam,
-        showModalCombatResult,
-        setShowModalCombatResult,
-      }}
-    >
-      {children}
-    </ModalsContext.Provider>
+    <ModalsContext.Provider value={value}>{children}</ModalsContext.Provider>
   );
 };

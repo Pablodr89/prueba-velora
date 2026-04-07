@@ -3,7 +3,7 @@ import { useCombatStore } from "../../stores/useCombatStore";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../views/AppRoutes";
 import { useContext } from "react";
-import { ModalsContext } from "../../context/ContextModals";
+import { ModalsContext } from "../../context/Contexts";
 import Button from "../Button";
 
 export default function ModalCombatResult() {

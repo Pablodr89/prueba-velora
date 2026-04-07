@@ -1,7 +1,7 @@
 import { getBackgroundColorByType } from "../../../utils/BackgroundColorCard";
 import { usePokemonStore } from "../../../stores/usePokemonStore";
 import { useContext } from "react";
-import { ModalsContext } from "../../../context/ContextModals";
+import { ModalsContext } from "../../../context/Contexts";
 import Button from "../../../components/Button";
 
 export default function Card({ pokemon }) {

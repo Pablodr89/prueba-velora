@@ -7,10 +7,8 @@ import Spinner from "../../components/Spinner/Spinner";
 import Filters from "./components/Filters";
 import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
 import SearchBar from "../../components/SearchBar";
-import { useFilterStore } from "../../stores/useFilterStore";
 
 export default function Home() {
-  const { filterType, setFilterType } = useFilterStore();
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
   const {
@@ -20,7 +18,8 @@ export default function Home() {
     namePokemon,
     setNamePokemon,
   } = useSearchPokemon();
-  const { pokemonFilter, isFilterLoading } = useFilterTypePokemon(filterType);
+  const { pokemonFilter, isFilterLoading, typePokemon, setTypePokemon } =
+    useFilterTypePokemon();
 
   const loadMoreRef = useRef();
 
@@ -44,8 +43,8 @@ export default function Home() {
 
       <Filters
         setNamePokemon={setNamePokemon}
-        filterType={filterType}
-        setFilterType={setFilterType}
+        typePokemon={typePokemon}
+        setTypePokemon={setTypePokemon}
       />
 
       {isLoading || isSearchLoading || isFilterLoading ? (

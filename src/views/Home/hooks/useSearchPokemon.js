@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchPokemon } from "../../../services/pokeApi";
 import { mapApiPokemon } from "../../../mappers/mapApiPokemon";
-import { useSearchStore } from "../../../stores/useSearchStore";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../../../context/Contexts";
 
 export const useSearchPokemon = () => {
-  const { namePokemon, setNamePokemon, debouncedName, setDebouncedName } =
-    useSearchStore();
+  const { namePokemon, setNamePokemon } = useContext(SearchContext);
+  const [debouncedName, setDebouncedName] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,7 +14,6 @@ export const useSearchPokemon = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [namePokemon]);
 
   const { data, isLoading, isError } = useQuery({

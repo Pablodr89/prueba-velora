@@ -1,7 +1,7 @@
 import Button from "../../components/Button";
 import { useCombatStore } from "../../stores/useCombatStore";
 import { useContext, useState } from "react";
-import { ModalsContext } from "../../context/ContextModals";
+import { ModalsContext } from "../../context/Contexts";
 import CardPokemonCombat from "./components/CardPokemonCombat";
 
 export default function Combat() {

@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTypesPokemon, getFilterPokemon } from "../../../services/pokeApi";
 import { mapApiPokemon } from "../../../mappers/mapApiPokemon";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
+import { FiltersContext } from "../../../context/Contexts";
 
 export const useGetTypesPokemon = () => {
   const { data } = useQuery({
@@ -27,11 +28,13 @@ export const useGetTypesPokemon = () => {
   return types;
 };
 
-export const useFilterTypePokemon = (type = "") => {
+export const useFilterTypePokemon = () => {
+  const { typePokemon, setTypePokemon } = useContext(FiltersContext);
+
   const { data, isLoading } = useQuery({
-    queryKey: ["pokemonFilter", type],
+    queryKey: ["pokemonFilter", typePokemon],
     queryFn: async () => {
-      const apiData = await getFilterPokemon(type);
+      const apiData = await getFilterPokemon(typePokemon);
 
       const pokemonDetail = await Promise.all(
         apiData.pokemon.map(async (p) => {
@@ -42,8 +45,13 @@ export const useFilterTypePokemon = (type = "") => {
       );
       return pokemonDetail;
     },
-    enabled: !!type && type.trim().length > 0,
+    enabled: !!typePokemon && typePokemon.trim().length > 0,
   });
 
-  return { pokemonFilter: data, isFilterLoading: isLoading };
+  return {
+    pokemonFilter: data,
+    isFilterLoading: isLoading,
+    typePokemon,
+    setTypePokemon,
+  };
 };
