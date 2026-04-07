@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useGetPokemonList } from "./hooks/usePokemonList";
 import { useSearchPokemon } from "./hooks/useSearchPokemon";
 import { useFilterTypePokemon } from "./hooks/useTypePokemon";
@@ -7,9 +7,10 @@ import Spinner from "../../components/Spinner/Spinner";
 import Filters from "./components/Filters";
 import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
 import SearchBar from "../../components/SearchBar";
+import { useFilterStore } from "../../stores/useFilterStore";
 
 export default function Home() {
-  const [filterType, setFilterType] = useState("");
+  const { filterType, setFilterType } = useFilterStore();
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPokemonList();
   const {
